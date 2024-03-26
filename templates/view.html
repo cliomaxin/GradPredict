@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+
+    <style>
+        .pad{
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MIC Group Member Details</h1>
+    <table style="border: 1px solid black;">
+        <tr style="border: 1px solid black;">
+            <th class="pad">Student Name</th>
+            <th class="pad">Adm Number</th>
+            <th class="pad">Student Email</th>
+            <th class="pad">Phone No</th>
+        </tr>
+        <br>
+        {% for detail in details_list %}
+            <tr style="border: 1px solid black;">
+                <td class="pad">{{ detail.student_name }}</td>
+                <td class="pad">{{ detail.admission_number }}</td>
+                <td class="pad">{{ detail.student_email }}</td>
+                <td class="pad">{{ detail.phone_number }}</td>      
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br><br><br>
+    <a href="{% url 'index' %}">Go Back to Registration Form</a>
+</body>
+</html>
+</ul>
