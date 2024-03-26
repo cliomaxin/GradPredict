@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "builds": [{
         "src": "studentdetails/wsgi.py",
         "use": "@vercel/python",
