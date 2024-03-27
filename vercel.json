@@ -1,6 +1,3 @@
-
-
-
 {
     "builds":[{
         "src": "accountant/wsgi.py",
