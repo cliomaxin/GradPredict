@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import details
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
 
 # Create your views here.
 
@@ -16,6 +18,10 @@ def index(request):
         # Redirect to the view.html page
         return redirect('view')
     return render(request, 'index.html')
+    
+def logout(request):
+    auth.logout(request)
+    return redirect('/') 
 
 def view(request):
     # Retrieve all details from the database
@@ -25,6 +31,7 @@ def view(request):
          'details_list': all_details,
     }
     return render(request, 'view.html', context)
+
 
 
 
