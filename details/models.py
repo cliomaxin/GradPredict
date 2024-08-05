@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.contrib.auth.models import User
 
+
 GENDER_CHOICES = (
     (0, 'male'),
     (1, 'female'),
@@ -23,11 +24,3 @@ class studentUser(models.Model):
     def __str__(self):
         return self.student_name
     
-class UserInfo(models.Model):
-    business_name=models.CharField(max_length=300)
-    business_email=models.CharField(max_length=300)
-    user_ip=models.CharField(max_length=300)
-    country = models.CharField(max_length=500,default="")
-
-    def __str__(self):
-        return self.business_name

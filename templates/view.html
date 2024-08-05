@@ -12,13 +12,14 @@
 </head>
 
 <body>
-    <h1>MIC Group Member Details</h1>
+    <h1>Student Member Details</h1>
     <table style="border: 1px solid black;">
         <tr style="border: 1px solid black;">
             <th class="pad">Student Name</th>
-            <th class="pad">Adm Number</th>
+            <th class="pad">Student ID</th>
             <th class="pad">Student Email</th>
-            <th class="pad">Phone No</th>
+            <th class="pad">Year of Study</th>
+            <th class="pad">Discussions</th>
         </tr>
         <br>
         {% for detail in details_list %}
@@ -32,7 +33,7 @@
     </table>
 
     <br><br><br>
-    <a href="{% url 'index' %}">Go Back to Registration Form</a>
+    <a href="{% url 'index' %}">Go Back to Dashboard</a>
 </body>
 </html>
 </ul>
