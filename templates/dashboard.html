@@ -403,13 +403,17 @@
             <form
               action="{% url 'index' %}"
               class="bg-white rounded pb_form_v1"
+              method="POST"
             >
+            {% csrf_token %}
               <h2 class="mb-4 mt-0 text-center">Student SignIn</h2>
+              <input type="hidden" name="action" value="signin">
               <div class="form-group">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control pb_height-50 reverse"
-                  placeholder="Student email"
+                  placeholder="Student Email"
+                  required=""
                 />
               </div>
               <div class="form-group">
@@ -417,6 +421,7 @@
                   type="password"
                   class="form-control py-3 reverse"
                   placeholder="Password"
+                  required=""
                 />
               </div>
               <div class="form-group">
@@ -531,30 +536,44 @@
             <form
               action="{% url 'index' %}"
               class="bg-white rounded pb_form_v1"
+              method="POST"
             >
+            {% csrf_token %}
               <h2 class="mb-4 mt-0 text-center">Student Signup</h2>
+              <input type="hidden" name="action" value="signup">
               <div class="form-group">
                 <input
                   type="text"
                   class="form-control py-3 reverse"
                   placeholder="Full name"
+                  required=""
                 />
               </div>
               <div class="form-group">
                 <input
-                  type="email"
+                  type="username"
                   class="form-control py-3 reverse"
                   placeholder="Email"
+                  required=""
                 />
               </div>
               <div class="form-group">
                 <input
-                  type="number"
+                  type="password"
                   class="form-control py-3 reverse"
-                  placeholder="Year of Study"
+                  placeholder="Password"
+                  required=""
                 />
               </div>
               <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control py-3 reverse"
+                  placeholder="Confirm Password"
+                  required=""
+                />
+              </div>
+              {% comment %} <div class="form-group">
                 <div class="pb_select-wrap">
                   <select class="form-control pb_height-50 reverse">
                     <option value="" selected="">Gender</option>
@@ -562,7 +581,7 @@
                     <option value="">female</option>
                   </select>
                 </div>
-              </div>
+              </div> {% endcomment %}
               <div class="form-group">
                 <input
                   type="submit"
@@ -570,6 +589,10 @@
                   value="Register"
                 />
               </div>
+              
+              <span style="display:list-item;">
+                <a href="#signin" style="padding: 2%; color: rgb(10, 10, 10);">I have an account</a>
+              </span>
             </form>
           </div>
         </div>
@@ -588,12 +611,12 @@
               </li>
               <li class="list-inline-item">
                 <a href="https://cliomaxin.github.io/maksimfelix/" class="p-2"
-                  ><i class="fa fa-twitter"></i
+                  ><i class="fab fa-twitter"></i
                 ></a>
               </li>
               <li class="list-inline-item">
                 <a href="https://cliomaxin.github.io/maksimfelix/" class="p-2"
-                  ><i class="fa fa-linkedin"></i
+                  ><i class="fab fa-linkedin"></i
                 ></a>
               </li>
             </ul>
