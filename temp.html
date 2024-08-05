@@ -308,6 +308,10 @@
     <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
     <meta name="robots" content="noindex, nofollow" />
   </head>
+
+
+
+  
   <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
     <nav
       class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
@@ -361,7 +365,7 @@
               >
             </li>
             <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
-              <a class="nav-link" href="https://cliomaxin.github.io/maksimfelix/" target="_blank"
+              <a class="nav-link" href="#signup" target="_blank"
                 ><span class="pb_rounded-4 px-4">Get Started</span></a
               >
             </li>
@@ -374,7 +378,7 @@
       class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
       id="section-home"
     >
-      <div class="container">
+      <div class="container"   id="signin">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6">
             <h2 class="heading mb-3">Ease Your School Management</h2>
@@ -385,7 +389,7 @@
               <p class="mb-5">
                 <a
                   class="btn btn-success btn-lg pb_btn-pill smoothscroll"
-                  href="https://cliomaxin.github.io/maksimfelix/#section-pricing"
+                  href="#signup"
                   ><span class="pb_font-14 text-uppercase pb_letter-spacing-1"
                     >Act Now</span
                   ></a
@@ -396,7 +400,7 @@
           <div class="col-md-1"></div>
           <div class="col-md-5 relative align-self-center">
             <form
-              action="https://cliomaxin.github.io/maksimfelix/#"
+              action="{% url 'index' %}"
               class="bg-white rounded pb_form_v1"
             >
               <h2 class="mb-4 mt-0 text-center">Student SignIn</h2>
@@ -418,9 +422,14 @@
                 <input
                   type="submit"
                   class="btn btn-primary btn-lg btn-block pb_btn-pill btn-shadow-blue"
-                  value="Register"
+                  value="Login"
                 />
               </div>
+
+              <span style="display:list-item;">
+                <a href="{% url 'forgotpassword' %}" style="padding: 2%; color: rgb(10, 10, 10);">Forgot Password</a>
+                <a href="#signup" style="padding: 2%; color: rgb(10, 10, 10);">I have no account</a>
+              </span>
             </form>
           </div>
         </div>
@@ -506,7 +515,7 @@
       class="pb_xl_py_cover overflow-hidden pb_slant-light pb_gradient_v1 cover-bg-opacity-8"
       style="background-image: url(assets/images/1900x1200_img_5.jpg)"
     >
-      <div class="container">
+      <div class="container" id="signup">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-5 justify-content-center">
             <h2 class="heading mb-5 pb_font-40">
@@ -517,9 +526,9 @@
             </div>
           </div>
           <div class="col-md-1"></div>
-          <div class="col-md-5">
+          <div class="col-md-5" >
             <form
-              action="https://cliomaxin.github.io/maksimfelix/#"
+              action="{% url 'index' %}"
               class="bg-white rounded pb_form_v1"
             >
               <h2 class="mb-4 mt-0 text-center">Student Signup</h2>
@@ -572,17 +581,17 @@
           <div class="col">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="https://cliomaxin.github.io/maksimfelix/#" class="p-2"
-                  ><i class="fa fa-facebook"></i
+                <a href="https://cliomaxin.github.io/maksimfelix/" class="p-2"
+                  ><i class="fab fa-facebook"></i
                 ></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://cliomaxin.github.io/maksimfelix/#" class="p-2"
+                <a href="https://cliomaxin.github.io/maksimfelix/" class="p-2"
                   ><i class="fa fa-twitter"></i
                 ></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://cliomaxin.github.io/maksimfelix/#" class="p-2"
+                <a href="https://cliomaxin.github.io/maksimfelix/" class="p-2"
                   ><i class="fa fa-linkedin"></i
                 ></a>
               </li>
