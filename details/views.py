@@ -16,7 +16,7 @@ def index(request):
         action = request.POST.get('action')
 
         if action == 'signup':
-            student_name = request.POST['text']
+            student_name = request.POST['student_name']
             username = request.POST['username']
             password = request.POST['password']
             password2 = request.POST['password2']
@@ -26,7 +26,7 @@ def index(request):
                     messages.info(request, 'Email is already in use. Please use another one.')
                     return redirect('index')
                 else:
-                    user = User.objects.create_user(username=username, student_name=student_name, password=password, password2=password2)
+                    user = User.objects.create_user(username=username, student_name=student_name, password=password)
                     user.save()
                     messages.info(request, 'You have successfully created an account. Please sign in.')
                     return redirect('index')
