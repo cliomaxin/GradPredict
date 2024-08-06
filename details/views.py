@@ -50,14 +50,35 @@ def index(request):
     return render(request, 'dashboard.html')
 
 def studentDetailscapture(request):
-    if request.method == 'POST':
-        form = studentUser(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('success')
-    else:
-        form = studentUser()
-    return render(request, 'studentform.html', {'form': form})
+     if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        gender = request.POST.get('gender')
+        phone_number = request.POST.get('phone')
+        student_id = request.POST.get('student_id')
+        program_entrance = request.POST.get('program_entrance')
+        mode_of_learning = request.POST.get('mode_of_learning')
+        profile_picture = request.FILES.get('profile_picture')
+
+        # Save the data to the model
+        studentUser.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            gender=gender,
+            phone_number=phone_number,
+            student_id=student_id,
+            program_entrance=program_entrance,
+            mode_of_learning=mode_of_learning,
+            profile_picture=profile_picture
+        )
+        return redirect('success')
+     else:
+         context = {
+             
+         }
+         return render(request, 'studentform.html', {'context': context})
 
 @login_required    
 def logout(request):
