@@ -1,13 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import studentUser
 
-class SignUpForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
+class studentUser(forms.ModelForm):
     class Meta:
         model = studentUser
-        fields = ('username', 'email', 'student_id', 'password1', 'password2', 'year_of_study', 'gender')
-
-class SignInForm(AuthenticationForm):
-    username = forms.EmailField(label="Email")
+        fields = ['first_name', 'last_name', 'email', 'gender', 'phone_number', 'student_id', 'program_entrance', 'mode_of_learning', 'profile_picture']

@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import studentUser
+from .models import User
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-# from .forms import SignUpForm, SignInForm
+from .forms import studentUser
 import re
 from django.contrib.auth.decorators import login_required
 
@@ -42,22 +42,31 @@ def index(request):
             
             if user is not None:
                 auth.login(request, user)
-                return redirect('view')
+                return redirect('studentDetailscapture')
             else:
                 messages.info(request, 'The account does not exist. Please try again!')
                 return redirect('index')
     
     return render(request, 'dashboard.html')
 
+def studentDetailscapture(request):
+    if request.method == 'POST':
+        form = studentUser(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = studentUser()
+    return render(request, 'studentform.html', {'form': form})
+
 @login_required    
 def logout(request):
     auth.logout(request)
     return redirect('/') 
 
-def view(request):
+def success(request):
     # Retrieve all details from the database
-    all_details = studentUser.objects.all().order_by('-created_at')
-    
+    all_details = studentUser.objects.all().order_by('-created_at') 
     context={
          'details_list': all_details,
     }

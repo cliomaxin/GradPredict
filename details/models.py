@@ -6,21 +6,22 @@ from django.contrib.auth.models import User
 GENDER_CHOICES = (
     (0, 'male'),
     (1, 'female'),
-    (2, 'not specified'),
+    (2, 'Unspecified'),
 )
 
 class studentUser(models.Model):
-    student_name = models.CharField(max_length=20, default="", blank=True, null=True)
-    username = models.CharField(max_length=100, default="", blank=True, null=True)
-    student_id = models.CharField(max_length=20, unique=True, default="", blank=True, null=True)
-    year_of_study = models.IntegerField(default="", blank=True, null=True)
-    gender = models.IntegerField(choices=GENDER_CHOICES, default="2", blank=True,null=True)
-    
-    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    first_name = models.CharField(max_length=50, default="", blank=True, null=True)
+    last_name = models.CharField(max_length=50, default="", blank=True, null=True)
+    email = models.EmailField(default="", blank=True, null=True)
+    gender = models.IntegerField(default="Unspecified", blank=True,null=True)
+    phone_number = models.CharField(max_length=12)
+    student_id = models.CharField(max_length=20)
+    program_entrance = models.CharField(max_length=20)
+    mode_of_learning = models.CharField(max_length=20)
+    profile_picture = models.ImageField(upload_to='profile_pictures/')
 
     def __str__(self):
         return self.email
     
     def __str__(self):
-        return self.student_name
-    
+        return self.first_name
