@@ -43,7 +43,7 @@ def index(request):
                 auth.login(request, user)
                 return redirect('studentDetailscapture')
             else:
-                messages.info(request, 'The account does not exist. Please try again!')
+                messages.info(request, 'The account does not exist! Make sure you have typed your name in the correct capitalization OR create an account and try again')
                 return redirect('index')
     
     return render(request, 'dashboard.html')
