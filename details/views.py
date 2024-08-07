@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import studentUser
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from .forms import studentUser
 import re
 from django.contrib.auth.decorators import login_required
 
@@ -49,20 +48,20 @@ def index(request):
     
     return render(request, 'dashboard.html')
 
+@login_required
 def studentDetailscapture(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         gender = request.POST.get('gender')
-        phone_number = request.POST.get('phone')
+        phone_number = request.POST.get('phone_number')
         student_id = request.POST.get('student_id')
         program_entrance = request.POST.get('program_entrance')
         mode_of_learning = request.POST.get('mode_of_learning')
-        profile_picture = request.FILES.get('profile_picture')
 
         # Save the data to the model
-        studentUser.objects.create(
+        studentDetails = studentUser.objects.create(
             first_name=first_name,
             last_name=last_name,
             email=email,
@@ -71,12 +70,11 @@ def studentDetailscapture(request):
             student_id=student_id,
             program_entrance=program_entrance,
             mode_of_learning=mode_of_learning,
-            profile_picture=profile_picture
         )
+        studentDetails.save()
         return redirect('success')
-     else:
+    else:
          context = {
-             
          }
          return render(request, 'studentform.html', {'context': context})
 
@@ -87,11 +85,11 @@ def logout(request):
 
 def success(request):
     # Retrieve all details from the database
-    all_details = studentUser.objects.all().order_by('-created_at') 
+    # all_details = studentUser.objects.all().order_by('-created_at') 
     context={
-         'details_list': all_details,
+        #  'details_list': all_details,
     }
-    return render(request, 'view.html', context)
+    return render(request, 'success.html', context)
 
 
 
